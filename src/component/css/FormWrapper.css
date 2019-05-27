@@ -1,12 +1,15 @@
 .positioner {
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .contents {
-    background: white;
+    background: rgba(255, 255, 255, 0.42);
     padding: 2rem;
+    padding-left: 3em;
+    padding-right: 3em;
     height: auto;
+    border-radius: 10px;
 }
