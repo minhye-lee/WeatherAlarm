@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Forum&display=swap');
+
+.Description {
+    text-align: center;
+    padding-top: 2em;
+    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.17);
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 230px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    margin-right: 0px;
+    overflow: auto;
+}
+.Description-header {
+    font-family: 'Forum', cursive;
+    font-size: 1.1em;
+}

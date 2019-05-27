@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Cinzel:700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Vidaloka&display=swap');
 
 .Header {
     text-align: center;
-    /*font-family: 'Cinzel', serif;*/
     font-family: 'Vidaloka', serif;
     font-size: 4em;
-    padding-top: 2em;
+    padding-top: 1.5em;
     color: white;
 }
 

@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import Header from '../component/Header'
+import Description from '../component/Description'
 
 class Home extends Component {
     render () {
         return(
-            <div className="Main-Form">
+            <div className="Home">
                 <Header/>
-                <div>
-                    Choose Address and Gender
-                </div>
+                <Description/>
             </div>
         )
     }
