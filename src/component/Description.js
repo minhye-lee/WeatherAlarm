@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import './css/Description.css'
 
+import { Form , Button } from "react-bootstrap"
+
+import InputForm from './InputForm'
+
 class Description extends Component {
     render() {
         return(
@@ -9,7 +13,7 @@ class Description extends Component {
                     We recommend clothes that match the weather of your residence and gender.
                 </div>
                 <div className="Description-form">
-                    input
+                    <InputForm/>
                 </div>
             </div>
         )
