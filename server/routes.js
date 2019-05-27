@@ -6,8 +6,8 @@ router.get("/api/getWeather", (req, res) => printWeather(req, res))
 
 module.exports = router
 
-const printWeather = (req, res) => {
-    let options = {
+const requestWeather = () => new Promise( (resolve => {
+    const options = {
         uri: "https://api2.sktelecom.com/weather/current/minutely?lat=36.1234&lon=127.1234",
         method: 'GET',
         headers: {
@@ -16,7 +16,18 @@ const printWeather = (req, res) => {
             'appKey': '8290775c-9cc8-4d95-a6d8-19a3805407ff'
         },
         json:true
-
     }
-    let result = request(options)
+    request(options, (err, res, body) => {
+        if (err)
+            console.log(err)
+        else {
+            console.log(body)
+            resolve(body)
+        }
+    })
+}))
+
+const printWeather = async (req, res) => {
+    let weather = await requestWeather()
+    res.send({result : weather})
 }

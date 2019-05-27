@@ -13,6 +13,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+const os = require("os");
+app.get("/api/getUsername", function(req, res, next){
+    res.send({ username: os.userInfo().username });
+});
 
 app.use(express.static(path.join(__dirname, '..', 'public/')))
 
