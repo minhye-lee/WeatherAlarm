@@ -1,17 +1,14 @@
 const express = require('express')
 const path = require('path')
-const os = require("os")
 const request = require('request')
 
 const app = express()
 const PORT = process.env.PORT || 4000
 
-app.use(express.static(path.join(__dirname, '..', 'public/')))
+const routes = require('./routes.js')
+app.use('/', routes)
 
-// if you need api routes add them here
-app.get("/api/getUsername", function(req, res, next){
-    res.send({ username: os.userInfo().username });
-});
+app.use(express.static(path.join(__dirname, '..', 'public/')))
 
 let options = {
     uri: "https://api2.sktelecom.com/weather/current/minutely?lat=36.1234&lon=127.1234",
