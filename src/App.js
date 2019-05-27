@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
+import { Route, BrowserRouter } from "react-router-dom"
 import './App.css';
 
-import Weather from './component/Weather'
+import Home from './layout/Home'
 
 class App extends Component {
   render() {
     return (
-        <div className="App">
-          <header className="App-header">
-              <Weather/>
-          </header>
-        </div>
-    );
+        <BrowserRouter>
+            <div>
+                <Route exact path="/" component={ Home } />
+            </div>
+        </BrowserRouter>
+    )
   }
 }
 
-export default App;
+export default App

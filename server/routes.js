@@ -8,7 +8,7 @@ module.exports = router
 
 const requestWeather = () => new Promise( (resolve => {
     const options = {
-        uri: "https://api2.sktelecom.com/weather/current/minutely?lat=36.1234&lon=127.1234",
+        uri: "https://api2.sktelecom.com/weather/current/minutely?&city=서울&county=강남구&village=삼성동",
         method: 'GET',
         headers: {
             'Accept': 'application/json',

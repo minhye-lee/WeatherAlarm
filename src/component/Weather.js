@@ -10,7 +10,6 @@ class Weather extends Component {
             .then(weather => this.setState({ weather: weather.result}))
     }
 
-
     render() {
         const { weather } = this.state
         console.log(weather)
