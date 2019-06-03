@@ -1,0 +1,12 @@
+.Button {
+    color : white;
+}
+a {
+    color: white !important;
+}
+
+a:hover {
+    /*color: red !important;*/
+    opacity: 0.7 !important;
+    text-decoration: none !important;
+}

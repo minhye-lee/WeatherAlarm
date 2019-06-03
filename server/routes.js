@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const request = require('request')
 
-// router.get("/api/getWeather", (req, res) => printWeather(req, res))
 router.post("/api/getWeather", (req, res) => getWeather(req, res))
 
 module.exports = router
@@ -28,28 +27,7 @@ const requestWeather = (city, county, village) => new Promise((resolve => {
         }
     })
 }))
-// const requestWeather2 = () => new Promise((resolve => {
-//     const uri = encodeURI(`https://api2.sktelecom.com/weather/current/minutely?city=서울&county=강남구&village=삼성동`)
-//
-//     const options = {
-//         uri: uri,
-//         method: 'GET',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json; charset=utf-8',
-//             'appKey': '8290775c-9cc8-4d95-a6d8-19a3805407ff'
-//         },
-//         json:true
-//     }
-//     request(options, (err, res, body) => {
-//         if (err)
-//             console.log(err)
-//         else {
-//             console.log(body)
-//             resolve(body)
-//         }
-//     })
-// }))
+
 const getWeather = async (req, res) => {
     const city = req.body.city
     const county = req.body.county
@@ -59,10 +37,3 @@ const getWeather = async (req, res) => {
     console.log('req.body', req.body)
     res.send({result : weather.weather})
 }
-
-//
-// const printWeather = async (req, res) => {
-//     let weather = await requestWeather2()
-//     res.send({result : weather})
-// }
-

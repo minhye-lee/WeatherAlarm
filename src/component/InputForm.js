@@ -5,13 +5,17 @@ import { Form, Col, Button} from "react-bootstrap"
 
 import { connect } from 'react-redux'
 import { inputCity, inputCounty, inputVillage, inputGender, postLocationGender } from "../redux/inputForm"
+import { Link } from 'react-router-dom'
+import "./css/InputForm.css"
+import {GENDER} from "../constant/const";
+
 
 class InputForm extends Component {
 
     handleClicked = () => {
-        const { city, county, village, gender, postLocationGender } = this.props
+        const {city, county, village, gender, postLocationGender} = this.props
         postLocationGender(city, county, village, gender)
-        console.log('dd')
+
     }
 
 
@@ -52,13 +56,19 @@ class InputForm extends Component {
                             as="select"
                             onChange={e => inputGender(e.target.value)}
                         >
-                            <option value="1">남</option>
-                            <option value="2">여</option>
+                            <option value={GENDER.male}>남</option>
+                            <option value={GENDER.male}>여</option>
                         </Form.Control>
                     </Form.Group>
 
-                    <Button variant="primary" type="reset" onClick={this.handleClicked}>
+                    <Button
+                        className="Button"
+                        variant="primary"
+                        type="reset"
+                        onClick={this.handleClicked}
+                    ><Link to="/clothes">
                         Submit
+                    </Link>
                     </Button>
                 </Form>
             </FormWrapper>
