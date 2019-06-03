@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import './css/Description.css'
-
-import { Form , Button } from "react-bootstrap"
-
 import InputForm from './InputForm'
 
 class Description extends Component {
