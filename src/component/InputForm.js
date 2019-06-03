@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import { inputCity, inputCounty, inputVillage, inputGender, postLocationGender } from "../redux/inputForm"
 import { Link } from 'react-router-dom'
 import "./css/InputForm.css"
-import {GENDER} from "../constant/const";
+import { GENDER } from "../constant/const";
 
 
 class InputForm extends Component {

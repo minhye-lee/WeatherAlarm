@@ -35,5 +35,5 @@ const getWeather = async (req, res) => {
     const api_result = await requestWeather(city, county, village)
     const weather = JSON.parse(api_result)
     console.log('req.body', req.body)
-    res.send({result : weather.weather})
+    res.send({result : weather.weather.minutely[0]})
 }
