@@ -57,7 +57,7 @@ class InputForm extends Component {
                             onChange={e => inputGender(e.target.value)}
                         >
                             <option value={GENDER.male}>남</option>
-                            <option value={GENDER.male}>여</option>
+                            <option value={GENDER.female}>여</option>
                         </Form.Control>
                     </Form.Group>
 
