@@ -27,6 +27,7 @@ class InputForm extends Component {
                     <Form.Group as={Col} controlId="Address-city">
                         <Form.Label>City</Form.Label>
                         <Form.Control
+                            className="placeholder"
                             type="text"
                             placeholder="시/도"
                             onChange={ e => inputCity(e.target.value)}/>
@@ -35,6 +36,7 @@ class InputForm extends Component {
                     <Form.Group as={Col} controlId="Address-county">
                         <Form.Label>County</Form.Label>
                         <Form.Control
+                            className="placeholder"
                             type="text"
                             placeholder="시/군/구"
                             onChange={ e => inputCounty(e.target.value)}
@@ -44,6 +46,7 @@ class InputForm extends Component {
                     <Form.Group as={Col} controlId="Address-village">
                         <Form.Label>Village</Form.Label>
                         <Form.Control
+                            className="placeholder"
                             type="text"
                             placeholder="읍/면/동"
                             onChange={ e => inputVillage(e.target.value)}
@@ -56,8 +59,8 @@ class InputForm extends Component {
                             as="select"
                             onChange={e => inputGender(e.target.value)}
                         >
-                            <option value={GENDER.male}>남</option>
-                            <option value={GENDER.female}>여</option>
+                            <option className="placeholder" value={GENDER.male}>남</option>
+                            <option className="placeholder" value={GENDER.female}>여</option>
                         </Form.Control>
                     </Form.Group>
 

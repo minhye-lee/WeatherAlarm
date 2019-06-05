@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Jua:400');
+
 .Button {
     color : white;
 }
@@ -9,4 +11,13 @@ a:hover {
     /*color: red !important;*/
     opacity: 0.7 !important;
     text-decoration: none !important;
+}
+
+.placeholder {
+    font-family: Jua !important;
+
+}
+
+select {
+    font-family: Jua !important;
 }

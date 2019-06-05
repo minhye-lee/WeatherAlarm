@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Jumbotron, Button } from "react-bootstrap"
+import { Link } from 'react-router-dom'
 import CurrentTime from './CurrentTime'
 import "./css/Location.css"
 import {GENDER} from "../constant/const";
@@ -32,7 +33,7 @@ class Location extends Component {
                     {Description}
                 </p>
                 <p>
-                    <Button variant="primary">Learn more</Button>
+                    <Button variant="primary"><Link to='/'>뒤로가기</Link></Button>
                 </p>
             </Jumbotron>
         )
