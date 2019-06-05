@@ -1,5 +1,6 @@
-import { ThunkDispatch } from 'redux-thunk'
-import { Action, ActionCreator, Dispatch} from 'redux'
+
+import { GENDER } from "../constant/const"
+
 
 //액션 타입 정의
 const INPUT_CITY = "INPUT_CITY"
@@ -26,16 +27,17 @@ export const inputGender = gender => ({
     type : INPUT_GENDER,
     gender,
 })
-export const fetchWeather = weather => ({
+export const fetchWeather = (clothes, current_temp) => ({
     type : FETCH_WEATHER,
-    weather,
+    clothes,
+    current_temp,
 })
 
 export const postLocationGender = (city, county, village, gender) => dispatch => {
     if(!city || !county || !village || !gender) {
         alert('error')
     } else {
-        fetch('/api/getWeather', {
+        fetch('/api/getInfomation', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
@@ -52,7 +54,10 @@ export const postLocationGender = (city, county, village, gender) => dispatch =>
         .then(result => {
             dispatch({
                 type : FETCH_WEATHER,
-                weather : result.result,
+                temperature : result.temperature,
+                rain : result.rain,
+                wind : result.wind,
+                clothes : result.clothes,
             })
         })
     }
@@ -63,9 +68,11 @@ export const initialState = {
     city : '',
     county : '',
     village : '',
-    gender : 1,
-    weather : null,
-
+    gender : GENDER.male,
+    temperature : [],
+    clothes : [],
+    wind : '',
+    rain : '',
 }
 
 const inputForm = (state = initialState, action) => {
@@ -96,7 +103,10 @@ const inputForm = (state = initialState, action) => {
         case FETCH_WEATHER:
             return {
                 ...state,
-                weather : action.weather,
+                temperature : action.temperature,
+                wind: action.wind,
+                rain : action.rain,
+                clothes : action.clothes,
             }
         default:
             return state
