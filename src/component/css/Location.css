@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Jua:400');
+
 .Jumbotron {
+    font-family: Jua !important;
     background: rgba(255, 255, 255, 0.5) !important;
 }

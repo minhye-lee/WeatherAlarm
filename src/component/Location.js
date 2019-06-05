@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Jumbotron, Button } from "react-bootstrap"
+import CurrentTime from './CurrentTime'
 import "./css/Location.css"
 import {GENDER} from "../constant/const";
 
@@ -23,7 +24,10 @@ class Location extends Component {
         const Description = !city || !county || !village ? `잘못된 위치 입니다.` : this.weather_description()
         return (
             <Jumbotron className="Jumbotron">
-                <h1>{Location}</h1>
+                <p>
+                    <CurrentTime/>
+                </p>
+                    <h1>{Location}</h1>
                 <p>
                     {Description}
                 </p>
