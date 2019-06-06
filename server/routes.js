@@ -35,6 +35,7 @@ const getInfomation = async (req, res) => {
 
 const requestWeather = (city, county, village) => new Promise((resolve => {
     const uri = encodeURI(`https://api2.sktelecom.com/weather/current/minutely?city=${city}&county=${county}&village=${village}`)
+    console.log(uri)
     const options = {
         uri: uri,
         method: 'GET',
