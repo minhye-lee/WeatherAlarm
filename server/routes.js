@@ -99,6 +99,9 @@ function selectcase(sex){
                     else
                         return case1m
                 }
+                else{
+                    return case1m
+                }
             }
         }
         else if (tmax >=23){ // case2
@@ -120,6 +123,9 @@ function selectcase(sex){
                     }
                     else
                         return case2m
+                }
+                else{
+                    return case2m
                 }
             }
         }
@@ -144,6 +150,9 @@ function selectcase(sex){
                     else
                         return case3m
                 }
+                else{
+                    return case3m
+                }
             }
 
         }
@@ -167,6 +176,9 @@ function selectcase(sex){
                     else
                         return case4m
                 }
+                else{
+                    return case4m
+                }
             }
         }
         else if (tmax >=12){ // case 5
@@ -189,7 +201,11 @@ function selectcase(sex){
                     else
                         return case5m
                 }
+                else{
+                    return case5m
+                }
             }
+            
         }
         else if (tmax >=9){ // case6
             if (daydiffer >= 8 ){ //일교차 확인부
@@ -210,6 +226,9 @@ function selectcase(sex){
                     }
                     else
                         return case6m
+                }
+                else{
+                    return case6m
                 }
             }
         }
@@ -232,6 +251,9 @@ function selectcase(sex){
                     }
                     else
                         return case7m
+                }
+                else{
+                    return case7m
                 }
             }
         }
@@ -260,6 +282,9 @@ function selectcase(sex){
                     else
                         return case1
                 }
+                else{
+                    return case1
+                }
             }
         }
         else if (tmax >=23){ // case2
@@ -281,6 +306,9 @@ function selectcase(sex){
                     }
                     else
                         return case2
+                }
+                else{
+                    return case2
                 }
             }
         }
@@ -305,6 +333,9 @@ function selectcase(sex){
                     else
                         return case3
                 }
+                else{
+                    return case3
+                }
             }
 
         }
@@ -328,6 +359,9 @@ function selectcase(sex){
                     else
                         return case4
                 }
+                else{
+                    return case4
+                }
             }
         }
         else if (tmax >=12){ // case 5
@@ -349,6 +383,9 @@ function selectcase(sex){
                     }
                     else
                         return case5
+                }
+                else{
+                    return case5
                 }
             }
         }
@@ -372,6 +409,9 @@ function selectcase(sex){
                     else
                         return case6
                 }
+                else{
+                    return case6
+                }
             }
         }
         else if (tmax >=5){
@@ -393,6 +433,9 @@ function selectcase(sex){
                     }
                     else
                         return case7
+                }
+                else{
+                    return case7
                 }
             }
         }
