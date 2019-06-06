@@ -9,6 +9,7 @@ const INPUT_VILLAGE = "INPUT_VILLAGE"
 const INPUT_GENDER = "INPUT_GENDER"
 const POST_LOCATION_GENDER = "POST_LOCATION_GENDER"
 const FETCH_WEATHER = "FETCH_WEATHER"
+const INITIALIZE_FORM = "INITIALIZE_FORM"
 
 //액션 생성자
 export const inputCity = city => ({
@@ -27,10 +28,8 @@ export const inputGender = gender => ({
     type : INPUT_GENDER,
     gender,
 })
-export const fetchWeather = (clothes, current_temp) => ({
-    type : FETCH_WEATHER,
-    clothes,
-    current_temp,
+export const initializeForm = () => ({
+    type : INITIALIZE_FORM,
 })
 
 export const postLocationGender = (city, county, village, gender) => dispatch => {
@@ -107,6 +106,10 @@ const inputForm = (state = initialState, action) => {
                 wind: action.wind,
                 rain : action.rain,
                 clothes : action.clothes,
+            }
+        case INITIALIZE_FORM:
+            return {
+                ...initialState,
             }
         default:
             return state

@@ -4,7 +4,8 @@ import { Jumbotron, Button } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 import CurrentTime from './CurrentTime'
 import "./css/Location.css"
-import {GENDER} from "../constant/const";
+import {GENDER} from "../constant/const"
+import { initializeForm } from "../redux/inputForm"
 
 
 class Location extends Component {
@@ -20,7 +21,7 @@ class Location extends Component {
 
 
     render() {
-        const { city, county, village, gender } = this.props
+        const { city, county, village, initializeForm} = this.props
         const Location = !city || !county || !village ? `Error` : `${city} ${county} ${village}의 현재 날씨는`
         const Description = !city || !county || !village ? `잘못된 위치 입니다.` : this.weather_description()
         return (
@@ -33,7 +34,7 @@ class Location extends Component {
                     {Description}
                 </p>
                 <p>
-                    <Button variant="primary"><Link to='/'>뒤로가기</Link></Button>
+                    <Button variant="primary" onClick={initializeForm}><Link to='/'>뒤로가기</Link></Button>
                 </p>
             </Jumbotron>
         )
@@ -50,4 +51,7 @@ const mapStateToProps = state => ({
     rain : state.inputForm.rain,
 })
 
-export default connect(mapStateToProps)(Location)
+const mapDispatchToProps = {
+    initializeForm,
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Location)

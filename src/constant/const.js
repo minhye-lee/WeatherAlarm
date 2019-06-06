@@ -20,5 +20,5 @@ export const CLOTHES_SRC = {
     "코트" : "https://i.imgur.com/fTiJ3k4.png",
     "패딩" : "https://i.imgur.com/MjXRhNE.png",
     "목도리" : "https://i.imgur.com/8JKGjJe.png",
-    "우산" : "https://i.imgur.com/KQusuLG.png",
+    "우산" : "https://i.imgur.com/NZigXf9.png",
 }
