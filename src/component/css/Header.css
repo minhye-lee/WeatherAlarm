@@ -1,13 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Vidaloka&display=swap');
 
-.Header {
+.div-des {
+    text-align: center;
+    font-family: 'Vidaloka', serif;
+    padding-top: 1.5em;
+    color: white;
+}
+
+.div-title {
     text-align: center;
     font-family: 'Vidaloka', serif;
     font-size: 4em;
     padding-top: 1.5em;
     color: white;
 }
-
 body {
-    background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/HPOKFbR/dramatic-sky-dark-stormy-raining-clouds-time-lapse-footage-weather-forecast-climate-change-or-passing-of-time-background-footage_edn7g_eox__F0000.png");
+    background-image: url("https://wi-images.condecdn.net/image/doEYpG6Xd87/crop/2040/f/weather.jpg");
+    background-size : cover
+
 }

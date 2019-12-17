@@ -1,13 +1,8 @@
 
-import { GENDER } from "../constant/const"
-
-
 //액션 타입 정의
 const INPUT_CITY = "INPUT_CITY"
 const INPUT_COUNTY = "INPUT_COUNTY"
 const INPUT_VILLAGE = "INPUT_VILLAGE"
-const INPUT_GENDER = "INPUT_GENDER"
-const POST_LOCATION_GENDER = "POST_LOCATION_GENDER"
 const FETCH_WEATHER = "FETCH_WEATHER"
 const INITIALIZE_FORM = "INITIALIZE_FORM"
 
@@ -24,28 +19,23 @@ export const inputVillage = village => ({
     type : INPUT_VILLAGE,
     village,
 })
-export const inputGender = gender => ({
-    type : INPUT_GENDER,
-    gender,
-})
 export const initializeForm = () => ({
     type : INITIALIZE_FORM,
 })
 
-export const postLocationGender = (city, county, village, gender) => dispatch => {
-    if(!city || !county || !village || !gender) {
-        alert('error')
+export const postLocation = (city, county, village) => dispatch => {
+    if(!city || !county || !village ) {
+        console.log(`${city}, ${county}, ${village}`)
     } else {
         fetch('/api/getInfomation', {
             method: 'POST',
-            headers: {
+                headers: {
                 'Content-Type': 'application/json; charset=utf-8'
             },
             body: JSON.stringify({
                 "city": city,
                 "county": county,
                 "village": village,
-                "gender": gender,
             })
         }).then(res => {
             return res.json()
@@ -67,7 +57,6 @@ export const initialState = {
     city : '',
     county : '',
     village : '',
-    gender : GENDER.male,
     temperature : [],
     clothes : [],
     wind : '',
@@ -92,12 +81,6 @@ const inputForm = (state = initialState, action) => {
             return {
                 ...state,
                 village : action.village,
-            }
-
-        case INPUT_GENDER:
-            return {
-                ...state,
-                gender : action.gender,
             }
         case FETCH_WEATHER:
             return {

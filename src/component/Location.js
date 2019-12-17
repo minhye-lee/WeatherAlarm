@@ -4,18 +4,32 @@ import { Jumbotron, Button } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 import CurrentTime from './CurrentTime'
 import "./css/Location.css"
-import {GENDER} from "../constant/const"
-import { initializeForm } from "../redux/inputForm"
+import { initializeForm, postLocation } from "../redux/inputForm"
 
 
 class Location extends Component {
+    state = {}
+    componentDidMount() {
+        const {city, county, village, postLocation} = this.props
+        if(city && county && village) {
+            const timeInter = setInterval(() => {
+                postLocation(city, county, village);
+            }, 600000)
+            this.setState({timeInter : timeInter})
+        } else {
+            console.log('not exist')
+        }
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.state.timeInter);
+    }
 
     weather_description = () => {
-        const { temperature, rain, wind, gender } = this.props
+        const { temperature, rain, wind } = this.props
         const rain_description = parseFloat(rain) > 0 ? `오고 있습니다.` : `오고 있지 않습니다.`
-        const gender_description = gender == GENDER.male ? `남성` : `여성`
         const weather = `현재 기온은 ${temperature['tc']}도 이며 오늘 최고 기온은 ${temperature['tmax']}, 최저 기온은 ${temperature['tmin']} 입니다.
-        바람은 ${wind} 속도로 불고 있고 비는 ${rain_description} \n 해당 데이터로 사용자의 성별(${gender_description})에 맞춘 옷 추천 리스트 입니다.`
+        바람은 ${wind} 속도로 불고 있고 비는 ${rain_description}`
         return weather
     }
 
@@ -26,16 +40,16 @@ class Location extends Component {
         const Description = !city || !county || !village ? `잘못된 위치 입니다.` : this.weather_description()
         return (
             <Jumbotron className="Jumbotron">
-                <p>
+                <div>
                     <CurrentTime/>
-                </p>
+                </div>
                     <h1>{Location}</h1>
-                <p>
+                <div>
                     {Description}
-                </p>
-                <p>
+                </div>
+                <div>
                     <Button variant="primary" onClick={initializeForm}><Link to='/'>뒤로가기</Link></Button>
-                </p>
+                </div>
             </Jumbotron>
         )
     }
@@ -45,7 +59,6 @@ const mapStateToProps = state => ({
     city : state.inputForm.city,
     county : state.inputForm.county,
     village : state.inputForm.village,
-    gender : state.inputForm.gender,
     temperature : state.inputForm.temperature,
     wind : state.inputForm.wind,
     rain : state.inputForm.rain,
@@ -53,5 +66,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     initializeForm,
+    postLocation,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Location)

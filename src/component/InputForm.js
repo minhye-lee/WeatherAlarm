@@ -4,23 +4,21 @@ import FormWrapper from './FormWrapper'
 import { Form, Col, Button} from "react-bootstrap"
 
 import { connect } from 'react-redux'
-import { inputCity, inputCounty, inputVillage, inputGender, postLocationGender } from "../redux/inputForm"
+import { inputCity, inputCounty, inputVillage,postLocation } from "../redux/inputForm"
 import { Link } from 'react-router-dom'
 import "./css/InputForm.css"
-import { GENDER } from "../constant/const"
-
 
 class InputForm extends Component {
 
     handleClicked = () => {
-        const {city, county, village, gender, postLocationGender} = this.props
-        postLocationGender(city, county, village, gender)
+        const {city, county, village, postLocation} = this.props
+        postLocation(city, county, village)
 
     }
 
 
     render() {
-        const { inputCity, inputCounty, inputVillage, inputGender } = this.props
+        const { inputCity, inputCounty, inputVillage } = this.props
         return (
             <FormWrapper>
                 <Form>
@@ -52,18 +50,6 @@ class InputForm extends Component {
                             onChange={ e => inputVillage(e.target.value)}
                         />
                     </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridState">
-                        <Form.Label>Gender</Form.Label>
-                        <Form.Control
-                            as="select"
-                            onChange={e => inputGender(e.target.value)}
-                        >
-                            <option className="placeholder" value={GENDER.male}>남</option>
-                            <option className="placeholder" value={GENDER.female}>여</option>
-                        </Form.Control>
-                    </Form.Group>
-
                     <Button
                         className="Button"
                         variant="primary"
@@ -83,15 +69,13 @@ const mapStateToProps = state => ({
     city : state.inputForm.city,
     county : state.inputForm.county,
     village : state.inputForm.village,
-    gender : state.inputForm.gender,
 })
 
 const mapDispatchToProps = {
     inputCity,
     inputCounty,
     inputVillage,
-    inputGender,
-    postLocationGender,
+    postLocation,
 }
 
 
